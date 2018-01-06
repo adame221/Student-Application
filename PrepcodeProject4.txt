@@ -1,0 +1,385 @@
+/**
+ *  Adam Ely
+ *  Project 4
+ *  04/20/2015
+ */
+ Part1:
+	StudentPart1:
+	public class StudentPart1 {
+
+	//Declare instance variables
+    protected int studentId;
+    protected String studentName;
+    protected String schoolName;
+	protected String extracurricularActivities;
+    protected String teacher;
+
+	//Getters/Setters
+   public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+ 
+    public int getStudentId() {
+        return studentId;
+    }
+    
+    public void setStudentName (String studentName) {
+        this.studentName = studentName;
+    }
+    
+    public String getStudentName() {
+        return studentName;
+    }
+    
+    public void setSchoolName (String schoolName) {
+        this.schoolName = schoolName;
+    }
+    
+    public String getSchoolName() {
+        return schoolName;
+    }
+	
+	public void setExtracurricularActivities (String extracurricularActivities) {
+		this.extracurricularActivities = extracurricularActivities;
+	}
+	
+	public String getExtracurricularActivities() {
+		return extracurricularActivities;
+	}
+    
+       public void setTeacher (String teacher) {
+        this.teacher = teacher;
+    }
+    
+    public String getTeacher() {
+        return teacher;
+    }
+	
+	//This method will convert the entered information into a string
+    public String toString() {
+        return "StudentID: " + studentId
+        + "\nStudentName: " + studentName + "\nSchoolName: "
+        + schoolName + "\nExtracurricular Activities: " + extracurricularActivities
+		+ "\nTeacher: " + teacher;
+     }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------
+	KindergardenPart1:
+	public class KindergardenPart1 extends StudentPart1 {
+	
+	//Declare instance varaiables
+    private String showAndTellItem;
+    
+	//Getters/Setters
+    public void setShowAndTellItem (String showAndTellItem) {
+        this.showAndTellItem = showAndTellItem;
+    }
+    public String getShowAndTellItem() {
+        return showAndTellItem;
+    }
+    
+	//This method will convert the entered information into a string
+    public String toString() {
+        return "StudentID: " + studentId
+        + "\nStudentName: " + studentName + "\nSchoolName: "
+        + schoolName + "\nExtracurricular Activities: " + extracurricularActivities
+		+ "\nTeacher: " + teacher
+		+ "\n\nA Kindergarden Student.\nShow And Tell Item: "
+        + showAndTellItem;
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	Part1TestDrive:
+	public class Part1TestDrive {
+
+    public static void main(String[] args) {
+    
+    //Create new students
+	KindergardenPart1 student1 = new KindergardenPart1();
+    student1.setStudentName("John");
+    student1.setStudentId(4532);
+    student1.setSchoolName("Madison");
+    student1.setTeacher("Mr. Johnson");
+	student1.setExtracurricularActivities("Reading club");
+	student1.setShowAndTellItem("Aaron Rodgers autographed football.");
+	
+	StudentPart1 student2 = new StudentPart1();
+    student2.setStudentName("Ally");
+    student2.setStudentId(4536);
+    student2.setSchoolName("Milwaukee");
+	student2.setExtracurricularActivities("basesball and hockey");
+    student2.setTeacher("Mr. Smith");
+	
+	KindergardenPart1 student3 = new KindergardenPart1();
+	student3.setStudentName("Rick");
+	student3.setStudentId(3343);
+	student3.setSchoolName("Green Bay");
+	student3.setExtracurricularActivities("Drawing club");
+	student3.setTeacher("Ms. Jones");
+	student3.setShowAndTellItem("trading cards");
+	
+	StudentPart1 student4 = new StudentPart1();
+	student4.setStudentName("Joe");
+	student4.setStudentId(2433);
+	student4.setSchoolName("La Crosse");
+	student4.setExtracurricularActivities("basesball,basketball, football");
+	student4.setTeacher("Mr. Crawford");
+    
+	ArrayList<StudentPart1> student = new ArrayList<StudentPart1>();
+	student.add(student1);
+	student.add(student2);
+	student.add(student3);
+	student.add(student4);
+    
+	//Loop through the array of students
+    for (int i = 0; i < student.size(); i++) {
+		System.out.println(student.get(i).toString());
+		System.out.println("------------------------------------------------------------");
+    }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Part2:
+	TestTaker:
+	 public interface TestTaker {
+ 
+		public void takeTest();
+	
+		public String getTestResults();
+	}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	StudentPart2:
+	abstract class StudentPart2 {
+	
+	//Declare instance variables
+    protected int studentId;
+    protected String studentName;
+	protected String gradeLevel;
+    protected String schoolName;
+    protected String teacher;
+	protected int score;
+
+	//Getters/Setters
+   public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+ 
+    public int getStudentId() {
+        return studentId;
+    }
+    
+    public void setStudentName (String studentName) {
+        this.studentName = studentName;
+    }
+    
+    public String getStudentName() {
+        return studentName;
+    }
+	
+	public void setGradeLevel(String gradeLevel) {
+		this.gradeLevel = gradeLevel;
+	}
+	
+	public String getGradeLevel() {
+		return gradeLevel;
+	}
+    
+    public void setSchoolName (String schoolName) {
+        this.schoolName = schoolName;
+    }
+    
+    public String getSchoolName() {
+        return schoolName;
+    }
+	
+    public void setScore (int score) {
+		this.score = score;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+    public void setTeacher (String teacher) {
+        this.teacher = teacher;
+    }
+    
+    public String getTeacher() {
+        return teacher;
+    }
+	
+	abstract String progressReport();
+ }
+ ---------------------------------------------------------------------------------------------------------------------------------------------------------
+	ElementaryStudent:
+	 public class ElementaryStudent extends StudentPart2 implements TestTaker {
+	
+	//Declare instance variable
+	protected String showAndTellItem;
+	
+	//Get/Set methods
+	public void setShowAndTellItem(String showAndTellItem) {
+		this.showAndTellItem = showAndTellItem;
+	}
+	
+	public String getShowAndTellItem() {
+		return showAndTellItem;
+	}
+	
+	//Call the takeTest method
+	public void takeTest(){}
+	
+	//Set information to the getTestResults method
+	public String getTestResults() {
+		if(score >= 60) {
+			return studentName + " has passed";
+		} else {
+			return studentName + " has failed";
+		}
+	}
+	
+	//Set information to the progressReport method
+	public String progressReport() {
+		return "\nStudent name: " + studentName + "\nStudent ID: " + studentId
+				+ "\nGrade level: " + gradeLevel + "\nSchool Name: " + schoolName
+				+ "\nTeacher: " + teacher + "\nShow and tell item: " + showAndTellItem 
+				+ "\nTest score: " + score + "\nStatus: " + getTestResults();
+	}
+ }
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------
+	MiddleStudent: 
+	 public class MiddleStudent extends StudentPart2 implements TestTaker {
+	
+	//Call the takeTest method
+	public void takeTest(){}
+	
+	//Set information to the getTestResults method
+	public String getTestResults() {
+		if(score >= 70) {
+			return studentName + " has passed";
+		} else {
+			return studentName + " has failed";
+		}
+	}
+	
+	//Set information to the progressReport method
+	public String progressReport() {
+		return "\nStudent name: " + studentName + "\nStudent ID: " + studentId
+				+ "\nGrade level: " + gradeLevel + "\nSchool Name: " + schoolName
+				+ "\nTeacher: " + teacher + "\nTest score: " + score 
+				+ "\nStatus: " + getTestResults();
+	}
+ }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+	HighStudent: 
+	 public class HighStudent extends StudentPart2 implements TestTaker {
+	
+	//Declare instance variables
+	protected String collegeSchoolChoices;
+	
+	//Getters/Setters
+	public void setCollegeSchoolChoices(String collegeSchoolChoices) {
+		this.collegeSchoolChoices = collegeSchoolChoices;
+	}
+	
+	public String getCollegeSchoolChoices() {
+		return collegeSchoolChoices;
+	}
+	
+	//Call the takeTest method
+	public void takeTest(){}
+	
+	//Set information to the getTestResults method
+	public String getTestResults() {
+		if(score >= 80) {
+			return studentName + " has passed";
+		} else {
+			return studentName + " has failed";
+		}
+	}
+	
+	//Set information to the progressReport method
+	public String progressReport() {
+		return "\nStudent name: " + studentName + "\nStudent ID: " + studentId
+				+ "\nGrade level: " + gradeLevel + "\nSchool Name: " + schoolName
+				+ "\nTeacher: " + teacher + "\nTest score: " + score 
+				+ "\nCollege Choices: " + collegeSchoolChoices + "\nStatus: " + getTestResults();
+	}
+ }
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+	StudentPart2TestDrive:
+	 public class StudentPart2TestDrive {
+	
+	public static void main(String[] args) {
+		
+		//Declare instance variables
+		String studentIdString = "";
+		String scoreString = "";
+		String moreClients = "";
+		int studentId = 0;
+		String studentName ="";
+		String gradeLevel = "";
+		String schoolName = "";
+		String teacher = "";
+		int score = 0;
+		String showAndTellItem = "";
+		String collegeSchoolChoices = "";
+		InputHelper input = new InputHelper();
+		ArrayList<StudentPart2> students = new ArrayList<StudentPart2>();
+		
+		//Loop through and ask the user to enter input
+		while(true) {
+			studentIdString = input.getUserInput("\nEnter the students id: ");
+			studentId = Integer.parseInt(studentIdString);
+			studentName = input.getUserInput("Enter the students name: ");
+			gradeLevel = input.getUserInput("Enter the students grade level. (Ex.Elementary,Middle,High): ");
+			schoolName = input.getUserInput("Enter the students school name: ");
+			teacher = input.getUserInput("Enter the students teacher: ");
+			scoreString = input.getUserInput("Enter the students score: ");
+			score = Integer.parseInt(scoreString);
+			if(gradeLevel.equals("Elementary") || gradeLevel.equals("elementary")) {
+				showAndTellItem = input.getUserInput("Enter the students show and tell item: ");
+				ElementaryStudent newElementaryStudent = new ElementaryStudent();
+				newElementaryStudent.setStudentId(studentId);
+				newElementaryStudent.setStudentName(studentName);
+				newElementaryStudent.setGradeLevel(gradeLevel);
+				newElementaryStudent.setSchoolName(schoolName);
+				newElementaryStudent.setScore(score);
+				newElementaryStudent.setTeacher(teacher);
+				newElementaryStudent.setShowAndTellItem(showAndTellItem);
+				students.add(newElementaryStudent);
+			} else if(gradeLevel.equals("Middle") || gradeLevel.equals("middle")) {
+				MiddleStudent newMiddleStudent = new MiddleStudent();
+				newMiddleStudent.setStudentId(studentId);
+				newMiddleStudent.setStudentName(studentName);
+				newMiddleStudent.setGradeLevel(gradeLevel);
+				newMiddleStudent.setSchoolName(schoolName);
+				newMiddleStudent.setScore(score);
+				newMiddleStudent.setTeacher(teacher);
+				students.add(newMiddleStudent);			
+			} else {
+				collegeSchoolChoices = input.getUserInput("Enter the students college choices: ");
+				HighStudent newHighStudent = new HighStudent();
+				newHighStudent.setStudentId(studentId);
+				newHighStudent.setStudentName(studentName);
+				newHighStudent.setGradeLevel(gradeLevel);
+				newHighStudent.setSchoolName(schoolName);
+				newHighStudent.setScore(score);
+				newHighStudent.setTeacher(teacher);
+				newHighStudent.setCollegeSchoolChoices(collegeSchoolChoices);
+				students.add(newHighStudent);				
+			}
+			moreClients = input.getUserInput(
+						"Would you like to enter another student? (Y or y for yes and N or n for no)");
+			if (!moreClients.equals("y")) {
+				break;
+			}
+		}
+		
+		//Loop through the array of students and output the progressReport method
+		for (int i = 0; i < students.size(); i++) {
+			System.out.println(students.get(i).progressReport());
+			System.out.println("-----------------------------------------------------------------------");
+		}
+	}
+ }

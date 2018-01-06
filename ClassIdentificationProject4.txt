@@ -1,0 +1,33 @@
+/**
+ *  Adam Ely
+ *  Project 4
+ *  04/20/2015
+ */
+ Part 1:
+	StudentPart1: this class will declare variables and have a method that will 
+	display the variables in a string.
+	
+	KindergardenPart1: this class will also declare variables and overide the method 
+	in StudentPart1.
+	
+	Part1TestDrive: this class will either create a general student or kindergarden student, 
+	and then loop through an array and call the display methods from the classes.
+	
+  Part 2:
+	TestTaker: this class will be the intrerface and will have two methods.
+	
+	StudentPart2: this class will declare instance variables and have a display method.
+	
+	ElementaryStudent: this class will declare new instance variables and overide the display
+	method from the StudentPart2 class.
+	
+	MiddleStudent: this class will declare new instance variables and overide the display
+	method from the StudentPart2 class.
+	
+	HighStudent: this class will declare new instance variables and overide the display
+	method from the StudentPart2 class.
+	
+	StudentPart2TestDrive: this class will create an array of new students.  The class will 
+	also ask the user to enter information, and then create a new elementary, middle, or high 
+	school student depending upon what grade level they enter.  Finally this class will loop through 
+	the array and display the information.

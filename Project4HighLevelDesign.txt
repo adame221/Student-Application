@@ -1,0 +1,26 @@
+/**
+ *  Adam Ely
+ *  Project 4
+ *  04/15/2015
+ */
+ Part 1:
+	1. Create a class that holds data for a general student.
+    2. Create instance variables for student id, name, school, extracurricular activities, and homeroom teacher.
+    3. Create get and set methods for the instance variables.
+    4. Create a method named toString() that has no parameters and return a string with the data about this class.
+    5. Next, create a subclass of the first class for kindergarten students. This class will add new field and override a method.
+    6. Add a new instance variable for show and tell item. Create get and set methods for the field.
+    7. Override the toString() method and output information on kindergarten students. Label the student as a kindergarten student and include the show and tell item.
+    8. Include these classes in your high-level design, class identification, Prepcode, and Test code.
+	
+ Part 2:
+	1. Create an abstract class that includes some basic data about students. The data should be similar to part 1 but be general enough for all students from K-12.
+    2. Create an abstract method in the abstract class that creates a progress report on the student.
+    3. Create an interface named TestTaker that declares the following methods:
+        a. takeTest – This method will have no parameters and no return value.
+        b. getTestResults – This method will have no parameters and will return a String.
+    4. Create 3 classes that extend the abstract class. One for high-school students, one for middle-school students, and one for elementary students.
+    5. The 3 subclasses will implement the TestTaker interface.
+    6. Add one or more instance variables to the subclasses that are specific to the type of student. Add get and set methods for these new fields.
+    7. Implement the abstract method in the superclass in each subclass. This method can return a string or output data to the terminal
+
